@@ -13,6 +13,7 @@ require_once "twitteroauth/config.php";
 		public $dbMap = array(
 			"id_str"       => "tweetid",
 			"created_at"   => "time",
+			"full_text"    => "text",
 			"text"         => "text",
 			"source"       => "source",
 			"coordinates"  => "coordinates",
@@ -142,7 +143,7 @@ require_once "twitteroauth/config.php";
 				if(property_exists($entity, 'expanded_url')){
 					$replacements[$entity->indices[0]] = array(
 						'end'     => $entity->indices[1],
-						'content' => $mediaUrl && $entity->media_url_https ? $entity->media_url_https : $entity->expanded_url
+						'content' => $mediaUrl && $entity->media_url ? $entity->media_url : $entity->expanded_url
 					);
 				}
 			}
