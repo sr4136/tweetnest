@@ -46,7 +46,7 @@ function loadArchiveFile( $filepath ) {
 	echo l( 'Found archive file ' . basename( $filepath ) . "\n");
 	$fileLines = file( $filepath );
 	// remove first line
-	array_shift( $fileLines );
+	//array_shift( $fileLines );
 	return json_decode( implode( '', $fileLines ) );
 }
 
