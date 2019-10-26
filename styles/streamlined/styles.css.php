@@ -464,6 +464,11 @@ ul#months, #months ul {
 	padding: 0 17px 0 0;
 }
 
+#months li.otd a .m {
+	background: transparent url(onthisday.png) no-repeat right center;
+	padding: 0 23px 0 0;
+}
+
 #days {
 	display: table;
 	table-layout: fixed;
