@@ -1,0 +1,1 @@
+cat /mnt/c/Users/Steve/Desktop/Twitter\ Archive/tweet.js | jq -cr '.|group_by(.created_at|strptime("%a %b %d %H:%M:%S %z %Y")|strftime("%Y-%m"))|.[]' | while read -r jsline; do echo "$jsline" >> "$(jq -r 'first(.[].created_at|strptime("%a %b %d %H:%M:%S %z %Y")|strftime("%Y_%m"))' <<< $jsline).js" ; done
