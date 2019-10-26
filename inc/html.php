@@ -8,7 +8,7 @@
 		$x      = str_repeat("\t", $tabs); $y = str_repeat("\t", $tabs+1);
 		$url    = explode("?", $_SERVER['REQUEST_URI'], 2);
 		$path   = s(rtrim($config['path'], "/"));
-		$q = $db->query("SELECT MONTH(FROM_UNIXTIME(`time`" . DB_OFFSET . ")) AS m, YEAR(FROM_UNIXTIME(`time`" . DB_OFFSET . ")) AS y, COUNT(*) AS c FROM `".DTP."tweets` $search->query WHERE `hidden` = 0 GROUP BY y, m ORDER BY y DESC, m DESC");
+		$q = $db->query("SELECT MONTH(FROM_UNIXTIME(`time`" . DB_OFFSET . ")) AS m, YEAR(FROM_UNIXTIME(`time`" . DB_OFFSET . ")) AS y, COUNT(*) AS c FROM `".DTP."tweets` $search->query GROUP BY y, m ORDER BY y DESC, m DESC");
 		while($r = $db->fetch($q)){
 			$months[] = $r;
 			if($r['c'] > $max){ $max = $r['c']; }
